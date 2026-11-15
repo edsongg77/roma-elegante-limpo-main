@@ -1,0 +1,279 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageHero } from "@/components/PageHero";
+import transferImg from "@/assets/mercedes-shopping.jpg";
+import fleetRome1 from "@/assets/transfers/fleet-rome-1.png";
+import fleetRome2 from "@/assets/transfers/fleet-rome-2-clear.png";
+import fleetRome3 from "@/assets/transfers/fleet-rome-3.png";
+import fleetRome4 from "@/assets/transfers/fleet-rome-4.png";
+import fleetRome5 from "@/assets/transfers/fleet-rome-5.png";
+import fleetRome6 from "@/assets/transfers/fleet-rome-6.png";
+import {
+  Plane,
+  Hotel,
+  Ship,
+  TrainFront,
+  Route as RouteIcon,
+  Car,
+  ArrowRight,
+  Check,
+  Moon,
+  Users2,
+} from "lucide-react";
+import { WHATSAPP } from "@/lib/contact";
+
+export const Route = createFileRoute("/transfers")({
+  head: () => ({
+    meta: [
+      { title: "Transfers Privados — DSC Italy Tours" },
+      {
+        name: "description",
+        content:
+          "Transfers privados aeroporto, porto, estação e entre cidades italianas: Roma, Florença, Pisa, Siena, Nápoles, Positano, Amalfi e Pompeia.",
+      },
+      { property: "og:title", content: "Transfers Privados na Itália — DSC Italy Tours" },
+      {
+        property: "og:description",
+        content:
+          "Motorista particular por diária e transfers entre as principais cidades da Itália.",
+      },
+    ],
+  }),
+  component: TransfersPage,
+});
+
+const services = [
+  {
+    icon: Plane,
+    title: "Aeroporto → Hotel",
+    text: "Recepção com placa no desembarque e traslado direto ao seu hotel.",
+  },
+  {
+    icon: Hotel,
+    title: "Hotel → Aeroporto",
+    text: "Partida pontual com monitoramento do seu voo em tempo real.",
+  },
+  {
+    icon: Ship,
+    title: "Porto → Hotel",
+    text: "Transfers de e para os principais portos de cruzeiro italianos.",
+  },
+  {
+    icon: TrainFront,
+    title: "Estação → Hotel",
+    text: "Encontre-se com seu motorista já na plataforma da estação.",
+  },
+  {
+    icon: RouteIcon,
+    title: "Entre Cidades",
+    text: "Roma, Florença, Pisa, Siena, Nápoles, Positano, Amalfi e Pompeia.",
+  },
+  {
+    icon: Car,
+    title: "Motorista por Diária",
+    text: "Chauffeur exclusivo à disposição por dia ou meio dia.",
+  },
+  {
+    icon: Moon,
+    title: "Roma by Night",
+    text: "Roma iluminada em um tour noturno privado inesquecível.",
+  },
+  {
+    icon: Users2,
+    title: "Eventos & Ocasiões",
+    text: "Motorista particular para casamentos, reuniões e eventos especiais.",
+  },
+];
+
+const routes = [
+  { from: "Roma", to: "Florença", km: "~275 km" },
+  { from: "Roma", to: "Nápoles", km: "~225 km" },
+  { from: "Roma", to: "Positano", km: "~275 km" },
+  { from: "Roma", to: "Amalfi", km: "~280 km" },
+  { from: "Roma", to: "Pompeia", km: "~240 km" },
+  { from: "Florença", to: "Pisa", km: "~85 km" },
+  { from: "Florença", to: "Siena", km: "~75 km" },
+  { from: "Nápoles", to: "Amalfi", km: "~60 km" },
+];
+
+const fleetGallery = [
+  {
+    src: fleetRome1,
+    alt: "Mercedes preto em frente ao centro histórico de Roma",
+    title: "Espaço e conforto",
+    text: "Veículos de alto padrão com cabinagem ampla, conforto máximo e praticidade para cada trajeto.",
+  },
+  {
+    src: fleetRome2,
+    alt: "Vans Mercedes alinhadas em frente a um palácio romano",
+    title: "Recepção personalizada",
+    text: "Atendimento exclusivo desde a chegada até o destino final.",
+  },
+  {
+    src: fleetRome3,
+    alt: "Mercedes preto estacionado em praça histórica da Itália",
+    title: "Viagem sem preocupações",
+    text: "Serviço para aeroporto, portos, hotéis e deslocamentos entre cidades.",
+  },
+  {
+    src: fleetRome4,
+    alt: "Mercedes sedan preto em cenário romano com árvores",
+    title: "Luxo discreto",
+    text: "Elegância e conforto para viagens privadas e eventos especiais.",
+  },
+  {
+    src: fleetRome5,
+    alt: "Interior de Mercedes com bancos de couro e iluminação azul",
+    title: "Conforto a bordo",
+    text: "Ambiente sofisticado para trajetos longos e experiências memoráveis.",
+  },
+  {
+    src: fleetRome6,
+    alt: "Frota de vans Mercedes alinhadas em um pátio italiano",
+    title: "Frota de alto padrão",
+    text: "Uma frota preparada para receber você com conforto em cada etapa da viagem.",
+  },
+] as const;
+
+function TransfersPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Transfers Privati"
+        title={
+          <>
+            Elegância <span className="italic text-gold">em cada trajeto</span>.
+          </>
+        }
+        subtitle="Frota premium, motoristas licenciados e pontualidade absoluta em toda a Itália."
+        image={transferImg}
+      />
+
+      <section className="py-24 md:py-32">
+        <div className="container-x">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((s) => (
+              <div
+                key={s.title}
+                className="group border border-border bg-card p-8 transition-colors hover:border-gold"
+              >
+                <s.icon className="h-8 w-8 text-gold" strokeWidth={1.2} />
+                <h3 className="mt-6 font-display text-2xl">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-gold opacity-0 transition-opacity group-hover:opacity-100"
+                >
+                  Cotar <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32">
+        <div className="container-x">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="eyebrow">Nossa frota</span>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl">Veículos pensados para luxo e conforto</h2>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {fleetGallery.map((image, index) => (
+              <figure
+                key={image.title}
+                className={`group flex h-full flex-col overflow-hidden border border-border bg-card ${
+                  index < 2 ? "xl:col-span-2" : ""
+                }`}
+              >
+                <div
+                  className={`relative overflow-hidden ${
+                    index < 2 ? "aspect-[16/9]" : "aspect-[4/3]"
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="flex-1 border-t border-border bg-card p-6">
+                  <p className="eyebrow text-[0.6rem]">Transfer privativo</p>
+                  <h3 className="mt-3 font-display text-2xl">{image.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{image.text}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-[oklch(0.04_0_0)] py-24">
+        <div className="container-x">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="eyebrow">Rotas populares</span>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl">Trajetos mais solicitados</h2>
+          </div>
+          <div className="mt-16 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {routes.map((r) => (
+              <div key={`${r.from}-${r.to}`} className="bg-card p-6">
+                <p className="eyebrow text-[0.6rem]">Trajeto</p>
+                <p className="mt-3 font-display text-xl">
+                  {r.from} <span className="text-gold">→</span> {r.to}
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">{r.km}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-center text-xs text-muted-foreground">
+            Distâncias rodoviárias aproximadas; podem variar conforme o endereço e a rota escolhida.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32">
+        <div className="container-x grid gap-16 md:grid-cols-2 md:items-center">
+          <div>
+            <span className="eyebrow">Incluso in ogni servizio</span>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl">Incluso em todo serviço</h2>
+            <ul className="mt-10 space-y-4">
+              {[
+                "Motorista profissional licenciado NCC",
+                "Frota premium revisada e segurada",
+                "Água mineral e wi-fi a bordo",
+                "Meet & greet com placa personalizada",
+                "Monitoramento de voos em tempo real",
+                "Cadeira infantil sob solicitação",
+                "Preço fixo, sem surpresas",
+                "Suporte 24h em quatro idiomas",
+              ].map((i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                  <span>{i}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="border border-border bg-card p-10 md:p-12">
+            <span className="eyebrow">Preventivo</span>
+            <h3 className="mt-4 font-display text-3xl">Solicite seu orçamento</h3>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Envie os detalhes do seu trajeto pelo WhatsApp e receba uma proposta personalizada em
+              minutos.
+            </p>
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex w-full items-center justify-center gap-3 bg-gradient-to-br from-gold to-gold-deep px-8 py-4 text-xs font-medium tracking-[0.24em] uppercase text-primary-foreground"
+            >
+              Orçamento no WhatsApp <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
