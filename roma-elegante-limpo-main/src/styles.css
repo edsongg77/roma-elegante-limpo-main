@@ -157,6 +157,14 @@
     transform: scale(1.005);
   }
 }
+@keyframes gentle-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.01);
+  }
+}
 
 @utility animate-fade-up {
   animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -169,4 +177,7 @@
 }
 @utility animate-subtle-zoom {
   animation: subtle-zoom 12s ease-out forwards;
+}
+@utility animate-gentle-zoom {
+  animation: gentle-zoom 12s ease-out forwards;
 }

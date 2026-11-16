@@ -22,9 +22,21 @@ import toursImg from "@/assets/tours.jpg";
 import featuredTuscanyImg from "@/assets/featured-tuscany.jpg";
 import featuredInteriorImg from "@/assets/featured-interior.jpg";
 import cruiseSectionImg from "@/assets/cruise-section.jpg";
+import romaCardImg from "@/assets/roma-card.avif";
+import romaDestinationImg from "@/assets/roma-destination.avif";
+import positanoCardImg from "@/assets/positano-card.avif";
+import tivoliCardImg from "@/assets/tivoli-card.avif";
+import amalfiCoastCardImg from "@/assets/amalfi-coast-card.avif";
+import florenceDestinationImg from "@/assets/florence-destination.avif";
+import naplesDestinationImg from "@/assets/naples-destination.avif";
+import pisaDestinationImg from "@/assets/pisa-destination.avif";
+import orvietoDestinationImg from "@/assets/orvieto-destination.jpg";
 import trevi from "@/assets/trevi.jpg";
+import treviHeroAlt from "@/assets/trevi-hero-alt.jpg";
 import florence from "@/assets/florence.jpg";
-import venice from "@/assets/venice.jpg";
+import veniceHero from "@/assets/venice-hero.png";
+import portofinoHero from "@/assets/portofino-hero.png";
+import veniceDestinationImg from "@/assets/venice-destination.avif";
 import tuscany from "@/assets/tuscany.jpg";
 import vatican from "@/assets/vatican.jpg";
 import pompeii from "@/assets/pompeii.jpg";
@@ -93,20 +105,20 @@ const services = [
 ];
 
 const featuredServiceImgs = [transferImg, featuredTuscanyImg, featuredInteriorImg] as const;
-const heroImages = [heroImg, trevi, florence] as const;
+const heroImages = [heroImg, treviHeroAlt, veniceHero, portofinoHero] as const;
 
 const cities = [
-  { name: "Roma", img: heroImg },
-  { name: "Florença", img: florence },
-  { name: "Veneza", img: venice },
-  { name: "Nápoles", img: pompeii },
-  { name: "Positano", img: toursImg },
-  { name: "Costa Amalfitana", img: toursImg },
+  { name: "Roma", img: romaDestinationImg },
+  { name: "Florença", img: florenceDestinationImg },
+  { name: "Veneza", img: veniceDestinationImg },
+  { name: "Nápoles", img: naplesDestinationImg },
+  { name: "Positano", img: positanoCardImg },
+  { name: "Costa Amalfitana", img: amalfiCoastCardImg },
   { name: "Pompeia", img: pompeii },
-  { name: "Pisa", img: florence },
-  { name: "Siena", img: tuscany },
-  { name: "Tivoli", img: trevi },
-  { name: "Orvieto", img: tuscany },
+  { name: "Pisa", img: pisaDestinationImg },
+  { name: "Siena", img: romaCardImg },
+  { name: "Tivoli", img: tivoliCardImg },
+  { name: "Orvieto", img: orvietoDestinationImg },
   { name: "Vaticano", img: vatican },
 ];
 
@@ -136,7 +148,11 @@ function HomePage() {
             className={`absolute inset-0 h-full w-full transition-opacity duration-[1500ms] ease-in-out ${
               activeHeroImage === index ? "opacity-100" : "opacity-0"
             } object-cover ${
-              index === 0 ? "animate-slow-zoom" : "animate-subtle-zoom object-[center_85%]"
+              index === 0
+                ? "animate-slow-zoom"
+                : index === 1
+                  ? "animate-gentle-zoom object-[center_80%]"
+                  : "animate-subtle-zoom object-[center_85%]"
             }`}
           />
         ))}
@@ -149,14 +165,7 @@ function HomePage() {
               A Itália, <br />
               <span className="italic text-gold">à sua maneira.</span>
             </h1>
-            <div className="mt-10 flex flex-wrap items-start gap-4 animate-fade-up">
-              <div className="flex flex-col items-start">
-                <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
-                  Muito mais do que transfers: transfers privados, city tours, excursões de um dia,
-                  roteiros personalizados e recepção de cruzeiros no Porto de Civitavecchia. Uma
-                  experiência completa pela Itália.
-                </p>
-              </div>
+            <div className="mt-10 flex flex-col items-start animate-fade-up">
               <Link
                 to="/tours"
                 className="inline-flex items-center gap-2 border border-border px-8 py-4 text-xs font-medium tracking-[0.24em] uppercase text-foreground transition-colors hover:border-gold hover:text-gold"
@@ -356,7 +365,11 @@ function HomePage() {
                   src={c.img}
                   alt={c.name}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 ${
+                    ["Nápoles", "Costa Amalfitana", "Florença", "Roma"].includes(c.name)
+                      ? "saturate-[1.3] contrast-[1.1] brightness-[0.92]"
+                      : ""
+                  }`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5">

@@ -67,6 +67,11 @@ function AboutPage() {
                 nosso país.
               </p>
               <p>
+                Muito mais do que transfers: transfers privados, city tours, excursões de um dia,
+                roteiros personalizados e recepção de cruzeiros no Porto de Civitavecchia. Uma
+                experiência completa pela Itália.
+              </p>
+              <p>
                 Atuamos no ramo turístico há mais de 10 anos em várias cidades da Itália. Com sede
                 em Roma, atendemos toda a região do Lazio, muitas cidades do Sul — como Nápoles,
                 Positano, Amalfi e Pompeia — e do Centro-Norte, incluindo Florença, Pisa, Siena,

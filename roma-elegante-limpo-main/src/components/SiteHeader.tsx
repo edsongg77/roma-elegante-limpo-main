@@ -40,7 +40,7 @@ export function SiteHeader() {
             alt="DSC Italy Tours"
             width={192}
             height={98}
-            className="h-12 w-24 shrink-0 object-contain"
+            className="h-[3.15rem] w-[6.3rem] shrink-0 object-contain"
           />
           <span className="flex min-w-0 flex-col leading-tight">
             <span className="font-display text-base tracking-wide text-foreground sm:text-lg">

@@ -46,7 +46,7 @@ function ContactPage() {
           <div>
             <span className="eyebrow">Informazioni</span>
             <h2 className="mt-4 font-display text-4xl md:text-5xl">Como nos encontrar</h2>
-            <p className="mt-6 text-muted-foreground">
+            <p className="mt-6 text-foreground">
               Prefere falar diretamente? Estamos a um clique de distância nos canais abaixo.
             </p>
 
